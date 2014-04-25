@@ -8,5 +8,6 @@ suits.each do |suit|
     count = count.next # increment the count
   end
 end
+deck.shuffle!
 puts deck.join(', ')
 puts "There are #{count} cards"
