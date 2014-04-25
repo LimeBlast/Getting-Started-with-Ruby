@@ -26,7 +26,7 @@ get '/:guess' do
   end
 
   if (params[:guess] == 'higher' and value < session[:value]) or (params[:guess] == 'lower' and value > session[:value])
-    "Game Over! The card was the #{card}. You managed to make #{session[:guesses]} correct guess#{'es' unless session[:guesses] == 1}"
+    "Game Over! The card was the #{card}. You managed to make #{session[:guesses]} correct guess#{'es' unless session[:guesses] == 1}. <a href='/'>Play again?</a>"
   else
     session[:guesses] += 1
     session[:value] = value
