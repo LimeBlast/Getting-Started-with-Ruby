@@ -16,7 +16,7 @@ helpers do
     session[:guesses] = -1
   end
 
-  def value_of card
+  def value_of(card)
     case card[0]
       when 'J' then
         11
@@ -29,7 +29,7 @@ helpers do
     end
   end
 
-  def player_has_a_losing value
+  def player_has_a_losing(value)
     (params[:guess] == 'higher' and value < session[:value]) or (params[:guess] == 'lower' and value > session[:value])
   end
 
@@ -37,18 +37,19 @@ helpers do
     session[:deck].pop
   end
 
-  def game_over card
+  def game_over(card)
     "Game Over! The card was the #{ card }. You managed to make #{session[:guesses]} correct guess#{'es' unless session[:guesses] == 1}. <a href='/'>Play Again</a>"
   end
 
-  def update_session_with value
+  def update_session_with(value)
     session[:value] = value
     session[:guesses] += 1
   end
 
-  def ask_about card
+  def ask_about(card)
     "The card is the #{ card }. Do you think the next card will be <a href='/higher'>Higher</a> or <a href='/lower'>Lower</a>?"
   end
+
 end
 
 get '/' do
