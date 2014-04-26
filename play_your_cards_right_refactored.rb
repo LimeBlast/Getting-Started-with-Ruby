@@ -18,11 +18,11 @@ helpers do
 
   def value_of card
     case card[0]
-      when "J" then
+      when 'J' then
         11
-      when "Q" then
+      when 'Q' then
         12
-      when "K" then
+      when 'K' then
         13
       else
         card.to_i
